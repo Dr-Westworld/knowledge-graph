@@ -1,3 +1,6 @@
+# rust code is being converted from python to rust using LLM
+
+
 # Knowledge Graph Generator
 
 A pure Rust library and CLI tool for generating knowledge graphs from web URLs and documents.
