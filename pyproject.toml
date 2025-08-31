@@ -1,0 +1,30 @@
+[project]
+name = "Knowlwdge_Graph"
+version = "0.1.0"
+description = "A lightweight Flask-based web app to generate interactive knowledge graphs from documents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Om Gawade", email = "gawade1420@gmail.com" }
+]
+
+# Optional project URLs
+urls = { 
+    "Homepage" = "https://github.com/Dr-Westworld",
+    "Repository" = "https://github.com/Dr-Westworld/knowledge-graph",
+    "Issues" = "https://github.com/Dr-Westworld/knowlwdge-graph/issues"
+}
+
+dependencies = [
+    "flask",
+    "pyvis",
+    "networkx",
+    "pypd",
+    "python-docx>=0.8.11",  
+    "chardet>=5.2.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

@@ -1,0 +1,21 @@
+[package]
+name = "kg_rust_mvp"
+version = "0.1.0"
+edition = "2024"
+description = "A pure Rust knowledge graph generator from web URLs and documents"
+license = "MIT"
+repository = "https://github.com/Dr-Westworld/knowledge-graph"
+keywords = ["knowledge-graph", "nlp", "web-scraping", "text-processing"]
+categories = ["text-processing", "web-programming"]
+
+[dependencies]
+actix-web = "4"
+actix-multipart = "0.4"
+actix-files = "0.6"
+uuid = { version = "1", features = ["v4"] }
+futures-util = "0.3"
+sanitize-filename = "0.5"
+chrono = "0.4"
+anyhow = "1"
+# optional helper libs you might already have via actix deps:
+bytes = "1"
