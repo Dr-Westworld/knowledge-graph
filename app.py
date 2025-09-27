@@ -99,8 +99,11 @@ def read_text_from_path(path: Path) -> str:
     if suf == ".docx" and docx:
         d = docx.Document(path)
         return "\n".join(p.text for p in d.paragraphs)
-    # fallback
-    return path.read_text(encoding="utf8", errors="ignore")
+    # fallback: try to detect encoding
+    raw = path.read_bytes()
+    detected = chardet.detect(raw)
+    enc = detected.get('encoding') or 'utf-8'
+    return raw.decode(enc, errors='replace')
 
 def build_graph(text: str):
     doc = nlp(text)
@@ -192,15 +195,14 @@ import chardet
 @app.route("/upload", methods=["POST"])
 def upload():
     file = request.files["file"]
-    raw_bytes = file.read()
-
-    # Detect encoding
-    detected = chardet.detect(raw_bytes)
-    encoding = detected["encoding"] or "utf-8"
-
-    # Decode safely (replace broken characters instead of crashing)
-    text = raw_bytes.decode(encoding, errors="replace")
     orig_name = file.filename
+    # Generate a unique id for this upload
+    uid = str(int(time.time())) + "-" + str(uuid.uuid4())[:8]
+    upload_path = UPLOAD_DIR / f"{uid}-{orig_name}"
+    file.save(str(upload_path))
+
+    # Use robust text extraction
+    text = read_text_from_path(upload_path)
 
     # 1. Build graph
     G = build_graph(text)
