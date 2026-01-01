@@ -482,5 +482,5 @@ def delete_graph(gid):
     return redirect(url_for("list_graphs"))
 
 if __name__ == "__main__":
-    print("Starting app on http://127.0.0.1:5000")
-    app.run(debug=True, port=5000)
+    print("Starting app on http://127.0.0.1:8000")
+    app.run(debug=True, port=8000)
