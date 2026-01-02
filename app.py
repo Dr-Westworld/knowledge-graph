@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 GPU-first KG web prototype (revised):
  - Upload doc
@@ -10,7 +9,6 @@ GPU-first KG web prototype (revised):
 Notes:
  - This revision removes the extra second-model pass and preserves hash->text mapping
  - Default model is set to an NVIDIA Nemotron-like identifier (override with KG_MODEL env var)
- - torch-tensorrt compile kept optional
  - Requires: torch, transformers, polars, xxhash, (optional torch_tensorrt)
 """
 import os
