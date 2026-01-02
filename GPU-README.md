@@ -188,6 +188,3 @@ Open-source, research use encouraged.
 Model licenses apply separately.
 
 ---
-
-
-Just say where you want to push this system next.
